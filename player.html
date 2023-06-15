@@ -1,70 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>Music Player</title>
-  <style>
-    #player {
-      width: 300px;
-      margin: 20px auto;
-      text-align: center;
-      background-color: #1683c2;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-    audio {
-      width: 100%;
-      margin-top: 10px;
-    }
-    .song-info {
-      margin-top: 10px;
-    }
-    .song-info img {
-      width: 100px;
-      border-radius: 50%;
-    }
-    .song-info p {
-      margin: 5px 0;
-    }
-    .next-songs {
-      margin-top: 20px;
-    }
-    .next-songs ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-    .next-songs li {
-      margin-bottom: 5px;
-    }
-    html{
-        background-color: #1683c2;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilocss.css">
+    <title>Projeto Player Spotify</title>
 </head>
 <body>
-  <div id="player">
-    <h2>Music Player</h2>
-    <div class="song-info">
-      <img src="mamu.jpeg" alt="Imagem da música">
-      <p>Flor do mamulengo</p>
-      <p>Mastruz com leite</p>
-      <p>Tempo: 3:45</p>
+    <div class="music-container">
+        <img src="imagens/mamu.jpeg" class="music-img">
+        <div class="descricao">
+            <h2>Flor do mamulengo</h2>
+            <i>Mastruz com leite</i>
+        </div>
+        <div class="duracao">
+            <div class="barra">
+                <progress value="0" max="1"></progress>
+                <div class="ponto"></div>
+            </div>
+            <div class="tempo">
+                <p class="inicio">0:00</p>
+                <p class="fim">3:40</p>
+            </div>
+        </div>
     </div>
-    <audio controls>
-      <source src="caminho/para/o/arquivo/musica1.mp3" type="audio/mpeg">
-      <source src="caminho/para/o/arquivo/musica1.ogg" type="audio/ogg">
-      <source src="caminho/para/o/arquivo/musica1.wav" type="audio/wav">
-     
-    </audio>
-    <div class="next-songs">
-      <h3>Próximas Músicas</h3>
-      <ul>
-        <li>Cars outside</li>
-        <li>Uniao flasco</li>
-        <li>dias de gloria</li>
-      </ul>
+    <div class="player">
+        <i class="fas fa-step-backward setas anterior"></i>
+        <i class="fas fa-play-circle botao-play"></i>
+        <i class="fas fa-pause-circle botao-pause"></i>
+        <i class="fas fa-step-forward setas proxima"></i>
     </div>
-  </div>
+    <div class="music-list">
+        <h3>Próximas Músicas</h3>
+        <ul>
+            <li>
+                <img src="imagens/clouds-mountains-night-the-moon-wallpaper-preview.jpg" alt="Imagem da música 1" class="music-list-img">
+                Cars outside
+            </li>
+            <li>
+                <img src="imagens/mamu.jpeg" alt="Imagem da música 2" class="music-list-img">
+                Música 2
+            </li>
+            <li>
+                <img src="imagens/mamu.jpeg" alt="Imagem da música 3" class="music-list-img">
+                Música 3
+            </li>
+        </ul>
+    </div>
+    <audio src="musicas/We Ride! - Reed Mathis.mp3"></audio>
+    <script src="js.js"></script>
 </body>
 </html>
