@@ -1,23 +1,22 @@
-let now_playing = document.querySelector('.now-playing');
-let track_art = document.querySelector('.track-art');
-let track_name = document.querySelector('.track-name');
-let track_artist = document.querySelector('.track-artist');
+let tocando = document.querySelector('.tocando');
+let imagem = document.querySelector('.imagem');
+let musica_nome = document.querySelector('.musica_nome');
+let artista = document.querySelector('.artista');
 
 let playpause_btn = document.querySelector('.playpause-track');
 let next_btn = document.querySelector('.next-track');
-let prev_btn = document.querySelector('.prev-track');
+let botao_voltar = document.querySelector('.voltar');
 
 let seek_slider = document.querySelector('.seek_slider');
 let volume_slider = document.querySelector('.volume_slider');
-let curr_time = document.querySelector('.current-time');
-let total_duration = document.querySelector('.total-duration');
+let tempo_inicial = document.querySelector('.tempo_inicial');
+let tempo_total = document.querySelector('.tempo_total');
 let wave = document.getElementById('wave');
 let randomIcon = document.querySelector('.fa-random');
 let curr_track = document.createElement('audio');
 
 let track_index = 0;
 let isPlaying = false;
-let isRandom = false;
 let updateTimer;
 
 const music_list = [
@@ -92,10 +91,10 @@ function loadTrack(track_index){
     curr_track.src = music_list[track_index].music;
     curr_track.load();
 
-    track_art.style.backgroundImage = "url(" + music_list[track_index].img + ")";
-    track_name.textContent = music_list[track_index].name;
-    track_artist.textContent = music_list[track_index].artist;
-    now_playing.textContent = "Tocando " + (track_index + 1) + " de " + music_list.length;
+    imagem.style.backgroundImage = "url(" + music_list[track_index].img + ")";
+    musica_nome.textContent = music_list[track_index].name;
+    artista.textContent = music_list[track_index].artist;
+    tocando.textContent = "Tocando " + (track_index + 1) + " de " + music_list.length;
 
     updateTimer = setInterval(setUpdate, 1000);
 
@@ -105,19 +104,11 @@ function loadTrack(track_index){
 
 
 function reset(){
-    curr_time.textContent = "00:00";
-    total_duration.textContent = "00:00";
+    tempo_inicial.textContent = "00:00";
+    tempo_total.textContent = "00:00";
     seek_slider.value = 0;
 }
 
-function playRandom(){
-    isRandom = true;
-    randomIcon.classList.add('randomActive');
-}
-function pauseRandom(){
-    isRandom = false;
-    randomIcon.classList.remove('randomActive');
-}
 function repeatTrack(){
     let current_index = track_index;
     loadTrack(current_index);
@@ -129,23 +120,21 @@ function playpauseTrack(){
 function playTrack(){
     curr_track.play();
     isPlaying = true;
-    track_art.classList.add('rotate');
+    imagem.classList.add('rotate');
     wave.classList.add('loader');
     playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
 }
 function pauseTrack(){
     curr_track.pause();
     isPlaying = false;
-    track_art.classList.remove('rotate');
+    imagem.classList.remove('rotate');
     wave.classList.remove('loader');
     playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
 }
 function nextTrack(){
-    if(track_index < music_list.length - 1 && isRandom === false){
+    if(track_index < music_list.length - 1){
         track_index += 1;
-    }else if(track_index < music_list.length - 1 && isRandom === true){
-        let random_index = Number.parseInt(Math.random() * music_list.length);
-        track_index = random_index;
+
     }else{
         track_index = 0;
     }
@@ -184,7 +173,6 @@ function setUpdate(){
         if(currentMinutes < 10) {currentMinutes = "0" + currentMinutes; }
         if(durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
 
-        curr_time.textContent = currentMinutes + ":" + currentSeconds;
-        total_duration.textContent = durationMinutes + ":" + durationSeconds;
-    }
-}
+        tempo_inicial.textContent = currentMinutes + ":" + currentSeconds;
+        tempo_total.textContent = durationMinutes + ":" + durationSeconds;
+    }}
