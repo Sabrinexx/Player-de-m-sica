@@ -1,78 +1,190 @@
-let musicas = [
-    {titulo:'Flor do mamulengo', artista:'Mastruz com leite', src:'musicas/Mastruz com Leite - Flor do mamulengo.mp3', img:'imagens/mamu.jpeg'},
-    {titulo:'Samba raiz', artista:'Bossa Nova Brasil', src:'musicas/Ella Vater - The Mini Vandals.mp3', img:'imagens/clouds-mountains-night-the-moon-wallpaper-preview.jpg'},
-    {titulo:'Música piano', artista:'John Green', src:'musicas/A Brand New Start - TrackTribe (1).mp3', img:'imagens/piano.jpg'}
+let now_playing = document.querySelector('.now-playing');
+let track_art = document.querySelector('.track-art');
+let track_name = document.querySelector('.track-name');
+let track_artist = document.querySelector('.track-artist');
+
+let playpause_btn = document.querySelector('.playpause-track');
+let next_btn = document.querySelector('.next-track');
+let prev_btn = document.querySelector('.prev-track');
+
+let seek_slider = document.querySelector('.seek_slider');
+let volume_slider = document.querySelector('.volume_slider');
+let curr_time = document.querySelector('.current-time');
+let total_duration = document.querySelector('.total-duration');
+let wave = document.getElementById('wave');
+let randomIcon = document.querySelector('.fa-random');
+let curr_track = document.createElement('audio');
+
+let track_index = 0;
+let isPlaying = false;
+let isRandom = false;
+let updateTimer;
+
+const music_list = [
+    {
+        img : 'images/mamu.jpeg',
+        name : 'Flor do mamulengo',
+        artist : 'Mastruz com leite',
+        music : 'music/Mastruz com Leite - Flor do mamulengo.mp3'
+    },
+    {
+        img : 'images/noite.jpg',
+        name : 'A noite',
+        artist : 'Tiê',
+        music : 'music/SnapSave.io - Tiê _A Noite_ - Clipe Oficial (128 kbps).mp3'
+    },
+    {
+        img : 'images/faded.png',
+        name : 'Faded',
+        artist : 'Alan Walker',
+        music : 'music/Faded.mp4'
+    },
+    {
+        img : 'images/carros.jpg',
+        name : 'Carsn outside',
+        artist : 'James Arthur',
+        music : 'music/carros.mp4'
+    },
+    {
+        img : 'images/yellow.jpg',
+        name : 'Yellow',
+        artist : 'Coldplay',
+        music : 'music/yellow.mp4'
+    },
+    {
+        img : 'images/superman.jpg',
+        name : 'Superman',
+        artist : 'Eminem',
+        music : 'music/superman.mp4'
+    },
+    {
+        img : 'images/get.jpg',
+        name : 'Get it together',
+        artist : '702',
+        music : 'music/get.mp4'
+    },
+    {
+        img : 'images/crina.jpg',
+        name : 'Crina negra',
+        artist : 'Banda patrulha',
+        music : 'music/crina.mp4'
+    },
+    {
+        img : 'images/hours.jpg',
+        name : 'The hours',
+        artist : 'The weeknd',
+        music : 'music/hours.mp4'
+    },
+    {
+        img : 'images/sozinho.jpg',
+        name : 'Sozinho',
+        artist : 'Raça negra',
+        music : 'music/sozinho.mp4'
+    }
 ];
 
-let musica = document.querySelector('audio');
-let indexMusica = 0;
+loadTrack(track_index);
 
-let duracaoMusica = document.querySelector('.fim');
-let imagem = document.querySelector('img');
-let nomeMusica = document.querySelector('.descricao h2');
-let nomeArtista = document.querySelector('.descricao i');
+function loadTrack(track_index){
+    clearInterval(updateTimer);
+    reset();
 
-renderizarMusica(indexMusica);
+    curr_track.src = music_list[track_index].music;
+    curr_track.load();
 
-// Eventos
-document.querySelector('.botao-play').addEventListener('click', tocarMusica);
+    track_art.style.backgroundImage = "url(" + music_list[track_index].img + ")";
+    track_name.textContent = music_list[track_index].name;
+    track_artist.textContent = music_list[track_index].artist;
+    now_playing.textContent = "Tocando " + (track_index + 1) + " de " + music_list.length;
 
-document.querySelector('.botao-pause').addEventListener('click', pausarMusica);
+    updateTimer = setInterval(setUpdate, 1000);
 
-musica.addEventListener('timeupdate', atualizarBarra);
+    curr_track.addEventListener('ended', nextTrack);
+    
+}
 
-document.querySelector('.anterior').addEventListener('click', () => {
-    indexMusica--;
-    if (indexMusica < 0) {
-        indexMusica = 2;
+
+function reset(){
+    curr_time.textContent = "00:00";
+    total_duration.textContent = "00:00";
+    seek_slider.value = 0;
+}
+
+function playRandom(){
+    isRandom = true;
+    randomIcon.classList.add('randomActive');
+}
+function pauseRandom(){
+    isRandom = false;
+    randomIcon.classList.remove('randomActive');
+}
+function repeatTrack(){
+    let current_index = track_index;
+    loadTrack(current_index);
+    playTrack();
+}
+function playpauseTrack(){
+    isPlaying ? pauseTrack() : playTrack();
+}
+function playTrack(){
+    curr_track.play();
+    isPlaying = true;
+    track_art.classList.add('rotate');
+    wave.classList.add('loader');
+    playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+}
+function pauseTrack(){
+    curr_track.pause();
+    isPlaying = false;
+    track_art.classList.remove('rotate');
+    wave.classList.remove('loader');
+    playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+}
+function nextTrack(){
+    if(track_index < music_list.length - 1 && isRandom === false){
+        track_index += 1;
+    }else if(track_index < music_list.length - 1 && isRandom === true){
+        let random_index = Number.parseInt(Math.random() * music_list.length);
+        track_index = random_index;
+    }else{
+        track_index = 0;
     }
-    renderizarMusica(indexMusica);
-});
-
-document.querySelector('.proxima').addEventListener('click', () => {
-    indexMusica++;
-    if (indexMusica > 2){
-        indexMusica = 0;
+    loadTrack(track_index);
+    playTrack();
+}
+function prevTrack(){
+    if(track_index > 0){
+        track_index -= 1;
+    }else{
+        track_index = music_list.length -1;
     }
-    renderizarMusica(indexMusica);
-});
-
-// Funções
-function renderizarMusica(index){
-    musica.setAttribute('src', musicas[index].src);
-    musica.addEventListener('loadeddata', () => {
-        nomeMusica.textContent = musicas[index].titulo;
-        nomeArtista.textContent = musicas[index].artista;
-        imagem.src = musicas[index].img;
-        duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
-    });
+    loadTrack(track_index);
+    playTrack();
 }
-
-function tocarMusica(){
-    musica.play();
-    document.querySelector('.botao-pause').style.display = 'block';
-    document.querySelector('.botao-play').style.display = 'none';
+function seekTo(){
+    let seekto = curr_track.duration * (seek_slider.value / 100);
+    curr_track.currentTime = seekto;
 }
-
-function pausarMusica(){
-    musica.pause();
-    document.querySelector('.botao-pause').style.display = 'none';
-    document.querySelector('.botao-play').style.display = 'block';
+function setVolume(){
+    curr_track.volume = volume_slider.value / 100;
 }
+function setUpdate(){
+    let seekPosition = 0;
+    if(!isNaN(curr_track.duration)){
+        seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+        seek_slider.value = seekPosition;
 
-function atualizarBarra(){
-    let barra = document.querySelector('progress');
-    barra.style.width = Math.floor((musica.currentTime / musica.duration) * 100) + '%';
-    let tempoDecorrido = document.querySelector('.inicio');
-    tempoDecorrido.textContent = segundosParaMinutos(Math.floor(musica.currentTime));
-}
+        let currentMinutes = Math.floor(curr_track.currentTime / 60);
+        let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+        let durationMinutes = Math.floor(curr_track.duration / 60);
+        let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
 
-function segundosParaMinutos(segundos){
-    let campoMinutos = Math.floor(segundos / 60);
-    let campoSegundos = segundos % 60;
-    if (campoSegundos < 10){
-        campoSegundos = '0' + campoSegundos;
+        if(currentSeconds < 10) {currentSeconds = "0" + currentSeconds; }
+        if(durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+        if(currentMinutes < 10) {currentMinutes = "0" + currentMinutes; }
+        if(durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+
+        curr_time.textContent = currentMinutes + ":" + currentSeconds;
+        total_duration.textContent = durationMinutes + ":" + durationSeconds;
     }
-
-    return campoMinutos+':'+campoSegundos;
 }
