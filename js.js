@@ -153,7 +153,9 @@ function nextTrack(){
 
     }else if(track_index < music_list.length - 1 && aleatorio){
         indice_aleatorio = parseInt(Math.random()*(music_list.length))
-        track_index = indice_aleatorio
+        if(indice_aleatorio != track_index){
+            track_index = indice_aleatorio
+        }
     }
         else{
         track_index = 0;
@@ -166,7 +168,9 @@ function prevTrack(){
         track_index -= 1;
     }else if(track_index > 0 && aleatorio){
         indice_aleatorio = parseInt(Math.random()*(music_list.length))
-        track_index = indice_aleatorio
+        if(indice_aleatorio != track_index){
+            track_index = indice_aleatorio
+        }
     }
     
     else{
