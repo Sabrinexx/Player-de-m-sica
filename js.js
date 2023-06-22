@@ -6,7 +6,7 @@ let artista = document.querySelector('.artista');
 let playpause_btn = document.querySelector('.playpause-track');
 let next_btn = document.querySelector('.next-track');
 let botao_voltar = document.querySelector('.voltar');
-
+let botao_aleatorio = document.querySelector('.Aleatorio')
 let seek_slider = document.querySelector('.seek_slider');
 let volume_slider = document.querySelector('.volume_slider');
 let tempo_inicial = document.querySelector('.tempo_inicial');
@@ -18,6 +18,7 @@ let curr_track = document.createElement('audio');
 let track_index = 0;
 let isPlaying = false;
 let updateTimer;
+let aleatorio = false
 
 const music_list = [
     {
@@ -40,7 +41,7 @@ const music_list = [
     },
     {
         img : 'images/carros.jpg',
-        name : 'Carsn outside',
+        name : 'Cars outside',
         artist : 'James Arthur',
         music : 'music/carros.mp4'
     },
@@ -84,6 +85,18 @@ const music_list = [
 
 loadTrack(track_index);
 
+function passarAleatorio(){
+ aleatorio ? pauseAleatorio() : playAleatorio()
+}
+function playAleatorio(){
+    aleatorio = true
+    document.querySelector('.Aleatorio').style.opacity = '1'
+}
+function pauseAleatorio(){
+    aleatorio = false
+    document.querySelector('.Aleatorio').style.opacity = '0.8'
+}
+
 function loadTrack(track_index){
     clearInterval(updateTimer);
     reset();
@@ -114,11 +127,12 @@ function repeatTrack(){
     loadTrack(current_index);
     playTrack();
 }
-function playpauseTrack(){
-    isPlaying ? pauseTrack() : playTrack();
-}
+
 function playTrack(){
     curr_track.play();
+    document.querySelector('.botao-pause').style.display = 'block';
+    document.querySelector('.playpause-track').style.display = 'none';
+   
     isPlaying = true;
     imagem.classList.add('rotate');
     wave.classList.add('loader');
@@ -126,25 +140,36 @@ function playTrack(){
 }
 function pauseTrack(){
     curr_track.pause();
+    document.querySelector('.botao-pause').style.display = 'none';
+    document.querySelector('.playpause-track').style.display = 'block';
     isPlaying = false;
     imagem.classList.remove('rotate');
     wave.classList.remove('loader');
-    playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+    playpause_btn.innerHTML = ' <i class="fa fa-pause-circle" aria-hidden="true" onclick="pauseTrack()"></i>';
 }
 function nextTrack(){
-    if(track_index < music_list.length - 1){
+    if(track_index < music_list.length - 1 && !aleatorio){
         track_index += 1;
 
-    }else{
+    }else if(track_index < music_list.length - 1 && aleatorio){
+        indice_aleatorio = parseInt(Math.random()*(music_list.length))
+        track_index = indice_aleatorio
+    }
+        else{
         track_index = 0;
     }
     loadTrack(track_index);
     playTrack();
 }
 function prevTrack(){
-    if(track_index > 0){
+    if(track_index > 0 && !aleatorio){
         track_index -= 1;
-    }else{
+    }else if(track_index > 0 && aleatorio){
+        indice_aleatorio = parseInt(Math.random()*(music_list.length))
+        track_index = indice_aleatorio
+    }
+    
+    else{
         track_index = music_list.length -1;
     }
     loadTrack(track_index);
@@ -176,3 +201,4 @@ function setUpdate(){
         tempo_inicial.textContent = currentMinutes + ":" + currentSeconds;
         tempo_total.textContent = durationMinutes + ":" + durationSeconds;
     }}
+  
