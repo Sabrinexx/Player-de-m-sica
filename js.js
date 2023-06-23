@@ -12,7 +12,7 @@ let volume_slider = document.querySelector('.volume_slider');
 let tempo_inicial = document.querySelector('.tempo_inicial');
 let tempo_total = document.querySelector('.tempo_total');
 let wave = document.getElementById('wave');
-let randomIcon = document.querySelector('.fa-random');
+
 let curr_track = document.createElement('audio');
 
 let track_index = 0;
@@ -22,16 +22,16 @@ let aleatorio = false
 
 const music_list = [
     {
-        img : 'images/mamu.jpeg',
-        name : 'Flor do mamulengo',
-        artist : 'Mastruz com leite',
-        music : 'music/Mastruz com Leite - Flor do mamulengo.mp3'
-    },
-    {
         img : 'images/noite.jpg',
         name : 'A noite',
         artist : 'Tiê',
         music : 'music/SnapSave.io - Tiê _A Noite_ - Clipe Oficial (128 kbps).mp3'
+    },
+    {
+        img : 'images/drag.jpg',
+        name : 'Drag me down ',
+        artist : 'One direction',
+        music : 'music/drag.mp3'
     },
     {
         img : 'images/faded.png',
@@ -80,7 +80,35 @@ const music_list = [
         name : 'Sozinho',
         artist : 'Raça negra',
         music : 'music/sozinho.mp4'
-    }
+    },
+    {
+        img : 'images/sexo.jpg',
+        name : 'Sex, Drugs etc',
+        artist : 'Beatch Weather',
+        music : 'music/sexo.mp3'
+    },
+    {
+        img : 'images/cry.jpg',
+        name : 'Stop crying your heart out',
+        artist : 'Oasis',
+        music : 'music/cry.mp4'
+    },
+    {
+        img : 'images/riptide.jpg',
+        name : 'Riptide',
+        artist : 'Vance Joy',
+        music : 'music/riptide.mp4'
+    },{
+        img : 'images/crazy.jpg',
+        name : 'Crazy frog',
+        artist : 'Axel F',
+        music : 'music/crazy.mp4'
+    },{
+        img : 'images/shirt.jpg',
+        name : 'In this shirt',
+        artist : 'The Irrepressibles    ',
+        music : 'music/shirt.mp4'
+    },
 ];
 
 loadTrack(track_index);
