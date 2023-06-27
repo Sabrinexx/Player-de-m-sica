@@ -22,89 +22,89 @@ let aleatorio = false
 
 const music_list = [
     {
-        img : 'images/noite.jpg',
+        img : 'img/noite.jpg',
         name : 'A noite',
         artist : 'Tiê',
         music : 'music/SnapSave.io - Tiê _A Noite_ - Clipe Oficial (128 kbps).mp3'
     },
     {
-        img : 'images/drag.jpg',
+        img : 'img/drag.jpg',
         name : 'Drag me down ',
         artist : 'One direction',
         music : 'music/drag.mp3'
     },
     {
-        img : 'images/faded.png',
+        img : 'img/faded.png',
         name : 'Faded',
         artist : 'Alan Walker',
         music : 'music/Faded.mp4'
     },
     {
-        img : 'images/carros.jpg',
+        img : 'img/carros.jpg',
         name : 'Cars outside',
         artist : 'James Arthur',
         music : 'music/carros.mp4'
     },
     {
-        img : 'images/yellow.jpg',
+        img : 'img/yellow.jpg',
         name : 'Yellow',
         artist : 'Coldplay',
         music : 'music/yellow.mp4'
     },
     {
-        img : 'images/superman.jpg',
+        img : 'img/superman.jpg',
         name : 'Superman',
         artist : 'Eminem',
         music : 'music/superman.mp4'
     },
     {
-        img : 'images/get.jpg',
+        img : 'img/get.jpg',
         name : 'Get it together',
         artist : '702',
         music : 'music/get.mp4'
     },
     {
-        img : 'images/crina.jpg',
+        img : 'img/crina.jpg',
         name : 'Crina negra',
         artist : 'Banda patrulha',
         music : 'music/crina.mp4'
     },
     {
-        img : 'images/hours.jpg',
+        img : 'img/hours.jpg',
         name : 'The hours',
         artist : 'The weeknd',
         music : 'music/hours.mp4'
     },
     {
-        img : 'images/sozinho.jpg',
+        img : 'img/sozinho.jpg',
         name : 'Sozinho',
         artist : 'Raça negra',
         music : 'music/sozinho.mp4'
     },
     {
-        img : 'images/sexo.jpg',
+        img : 'img/sexo.jpg',
         name : 'Sex, Drugs etc',
         artist : 'Beatch Weather',
         music : 'music/sexo.mp3'
     },
     {
-        img : 'images/cry.jpg',
+        img : 'img/cry.jpg',
         name : 'Stop crying your heart out',
         artist : 'Oasis',
         music : 'music/cry.mp4'
     },
     {
-        img : 'images/riptide.jpg',
+        img : 'img/riptide.jpg',
         name : 'Riptide',
         artist : 'Vance Joy',
         music : 'music/riptide.mp4'
     },{
-        img : 'images/crazy.jpg',
+        img : 'img/crazy.jpg',
         name : 'Crazy frog',
         artist : 'Axel F',
         music : 'music/crazy.mp4'
     },{
-        img : 'images/shirt.jpg',
+        img : 'img/shirt.jpg',
         name : 'In this shirt',
         artist : 'The Irrepressibles    ',
         music : 'music/shirt.mp4'
