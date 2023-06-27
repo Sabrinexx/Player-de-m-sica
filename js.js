@@ -37,7 +37,7 @@ const music_list = [
         img : 'img/faded.png',
         name : 'Faded',
         artist : 'Alan Walker',
-        music : 'music/Faded.mp4'
+        music : 'music/faded.mp4'
     },
     {
         img : 'img/carros.jpg',
@@ -98,17 +98,13 @@ const music_list = [
         name : 'Riptide',
         artist : 'Vance Joy',
         music : 'music/riptide.mp4'
-    },{
+    },
+    {
         img : 'img/crazy.jpg',
         name : 'Crazy frog',
         artist : 'Axel F',
         music : 'music/crazy.mp4'
-    },{
-        img : 'img/shirt.jpg',
-        name : 'In this shirt',
-        artist : 'The Irrepressibles    ',
-        music : 'music/shirt.mp4'
-    },
+    }
 ];
 
 loadTrack(track_index);
