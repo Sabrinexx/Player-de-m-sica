@@ -233,7 +233,7 @@ function setUpdate(){
  function tocar_noite(){
     clearInterval(updateTimer);
     reset();
-
+    track_index = 0
     curr_track.src = music_list[0].music;
     curr_track.load();
 
@@ -250,7 +250,7 @@ function setUpdate(){
   function tocar_drag(){
     clearInterval(updateTimer);
     reset();
-
+    track_index = 1
     curr_track.src = music_list[1].music;
     curr_track.load();
 
@@ -267,7 +267,7 @@ function setUpdate(){
   function tocar_faded(){
     clearInterval(updateTimer);
     reset();
-
+    track_index = 2
     curr_track.src = music_list[2].music;
     curr_track.load();
 
@@ -284,7 +284,7 @@ function setUpdate(){
   function tocar_carros(){
     clearInterval(updateTimer);
     reset();
-
+    track_index = 3
     curr_track.src = music_list[3].music;
     curr_track.load();
 
@@ -301,7 +301,7 @@ function setUpdate(){
   function tocar_yellow(){
     clearInterval(updateTimer);
     reset();
-
+    track_index = 4
     curr_track.src = music_list[4].music;
     curr_track.load();
 
@@ -318,7 +318,7 @@ function setUpdate(){
   function tocar_superman(){
     clearInterval(updateTimer);
     reset();
-
+    track_index = 5
     curr_track.src = music_list[5].music;
     curr_track.load();
 
@@ -332,3 +332,140 @@ function setUpdate(){
     curr_track.addEventListener('ended', nextTrack);7
     playTrack()
   }
+  function tocar_get(){
+    clearInterval(updateTimer);
+    reset();
+    track_index = 6
+    curr_track.src = music_list[6].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[6].img + ")";
+    musica_nome.textContent = music_list[6].name;
+    artista.textContent = music_list[6].artist;
+    tocando.textContent = "Tocando " + (7) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
+  function tocar_crina(){
+    clearInterval(updateTimer);
+    reset();
+    track_index = 7
+    curr_track.src = music_list[7].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[7].img + ")";
+    musica_nome.textContent = music_list[7].name;
+    artista.textContent = music_list[7].artist;
+    tocando.textContent = "Tocando " + (8) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
+  function tocar_hours(){
+    clearInterval(updateTimer);
+    reset();
+    track_index = 8
+    curr_track.src = music_list[8].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[8].img + ")";
+    musica_nome.textContent = music_list[8].name;
+    artista.textContent = music_list[8].artist;
+    tocando.textContent = "Tocando " + (9) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
+  function tocar_sozinho(){
+    clearInterval(updateTimer);
+    reset();
+    track_index = 9
+    curr_track.src = music_list[9].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[9].img + ")";
+    musica_nome.textContent = music_list[9].name;
+    artista.textContent = music_list[9].artist;
+    tocando.textContent = "Tocando " + (10) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }  
+  function tocar_sexo(){
+    clearInterval(updateTimer);
+    reset();
+    track_index = 10
+    curr_track.src = music_list[10].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[10].img + ")";
+    musica_nome.textContent = music_list[10].name;
+    artista.textContent = music_list[10].artist;
+    tocando.textContent = "Tocando " + (11) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
+  function tocar_cry(){
+    clearInterval(updateTimer);
+    reset();
+    track_index = 11
+    curr_track.src = music_list[11].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[11].img + ")";
+    musica_nome.textContent = music_list[11].name;
+    artista.textContent = music_list[11].artist;
+    tocando.textContent = "Tocando " + (12) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
+  function tocar_riptide(){
+    clearInterval(updateTimer);
+    reset();
+    track_index = 12
+    curr_track.src = music_list[12].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[12].img + ")";
+    musica_nome.textContent = music_list[12].name;
+    artista.textContent = music_list[12].artist;
+    tocando.textContent = "Tocando " + (13) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
+  function tocar_crazy(){
+    clearInterval(updateTimer);
+    reset();
+    track_index = 13
+    curr_track.src = music_list[13].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[13].img + ")";
+    musica_nome.textContent = music_list[13].name;
+    artista.textContent = music_list[13].artist;
+    tocando.textContent = "Tocando " + (14) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
+ 
