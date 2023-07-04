@@ -104,11 +104,6 @@ const music_list = [
         name : 'Crazy frog',
         artist : 'Axel F',
         music : 'music/crazy.mp4'
-    },
-    { img : 'img/plof.jpg',
-        name : 'Esse plof plof me deixa maluca',
-        artist : 'Mc Beatriz',
-        music : 'music/plof.mp3'
     }
 ];
 
