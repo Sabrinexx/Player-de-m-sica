@@ -153,5 +153,6 @@ body {
     align-items: start;
    border-bottom: 2px solid black;
     background-color: rgb(129, 150, 173);
+    width: 100%;
   }
  
