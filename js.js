@@ -228,5 +228,107 @@ function setUpdate(){
 
         tempo_inicial.textContent = currentMinutes + ":" + currentSeconds;
         tempo_total.textContent = durationMinutes + ":" + durationSeconds;
-    }}
-  
+    }
+}
+ function tocar_noite(){
+    clearInterval(updateTimer);
+    reset();
+
+    curr_track.src = music_list[0].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[0].img + ")";
+    musica_nome.textContent = music_list[0].name;
+    artista.textContent = music_list[0].artist;
+    tocando.textContent = "Tocando " + (1) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
+  function tocar_drag(){
+    clearInterval(updateTimer);
+    reset();
+
+    curr_track.src = music_list[1].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[1].img + ")";
+    musica_nome.textContent = music_list[1].name;
+    artista.textContent = music_list[1].artist;
+    tocando.textContent = "Tocando " + (2) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
+  function tocar_faded(){
+    clearInterval(updateTimer);
+    reset();
+
+    curr_track.src = music_list[2].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[2].img + ")";
+    musica_nome.textContent = music_list[2].name;
+    artista.textContent = music_list[2].artist;
+    tocando.textContent = "Tocando " + (3) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
+  function tocar_carros(){
+    clearInterval(updateTimer);
+    reset();
+
+    curr_track.src = music_list[3].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[3].img + ")";
+    musica_nome.textContent = music_list[3].name;
+    artista.textContent = music_list[3].artist;
+    tocando.textContent = "Tocando " + (4) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
+  function tocar_yellow(){
+    clearInterval(updateTimer);
+    reset();
+
+    curr_track.src = music_list[4].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[4].img + ")";
+    musica_nome.textContent = music_list[4].name;
+    artista.textContent = music_list[4].artist;
+    tocando.textContent = "Tocando " + (5) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
+  function tocar_superman(){
+    clearInterval(updateTimer);
+    reset();
+
+    curr_track.src = music_list[5].music;
+    curr_track.load();
+
+    imagem.style.backgroundImage = "url(" + music_list[5].img + ")";
+    musica_nome.textContent = music_list[5].name;
+    artista.textContent = music_list[5].artist;
+    tocando.textContent = "Tocando " + (6) + " de " + music_list.length;
+
+    updateTimer = setInterval(setUpdate, 1000);
+
+    curr_track.addEventListener('ended', nextTrack);7
+    playTrack()
+  }
