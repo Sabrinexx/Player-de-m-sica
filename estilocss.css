@@ -21,6 +21,7 @@ body {
     padding: 15px;
     background-color: #eee;
     width: 100%;
+    border-bottom: 2px solid black;
     }
   
   .details {
