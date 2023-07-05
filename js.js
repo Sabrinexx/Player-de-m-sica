@@ -13,6 +13,12 @@ let tempo_inicial = document.querySelector('.tempo_inicial');
 let tempo_total = document.querySelector('.tempo_total');
 let wave = document.getElementById('wave');
 
+
+
+
+
+
+
 let curr_track = document.createElement('audio');
 
 let track_index = 0;
@@ -136,7 +142,88 @@ function loadTrack(track_index){
     updateTimer = setInterval(setUpdate, 1000);
 
     curr_track.addEventListener('ended', nextTrack);
-    
+  if(track_index==0){
+    document.querySelector('.mus1').classList.add('piscar')
+}else{
+    document.querySelector('.mus1').classList.remove('piscar')
+}
+
+if(track_index==1){
+    document.querySelector('.mus2').classList.add('piscar')
+}else{
+    document.querySelector('.mus2').classList.remove('piscar')
+}
+
+if(track_index==2){
+    document.querySelector('.mus3').classList.add('piscar')
+}else{
+    document.querySelector('.mus3').classList.remove('piscar')
+}
+
+if(track_index==3){
+    document.querySelector('.mus4').classList.add('piscar')
+}else{
+    document.querySelector('.mus4').classList.remove('piscar')
+}
+
+if(track_index==4){
+    document.querySelector('.mus5').classList.add('piscar')
+}else{
+    document.querySelector('.mus5').classList.remove('piscar')
+}
+
+if(track_index==5){
+    document.querySelector('.mus6').classList.add('piscar')
+}else{
+    document.querySelector('.mus6').classList.remove('piscar')
+}
+
+if(track_index==6){
+    document.querySelector('.mus7').classList.add('piscar')
+}else{
+    document.querySelector('.mus7').classList.remove('piscar')
+}
+if(track_index==7){
+    document.querySelector('.mus8').classList.add('piscar')
+}else{
+    document.querySelector('.mus8').classList.remove('piscar')
+}
+
+if(track_index==8){
+    document.querySelector('.mus9').classList.add('piscar')
+}else{
+    document.querySelector('.mus9').classList.remove('piscar')
+}
+
+if(track_index==9){
+    document.querySelector('.mus10').classList.add('piscar')
+}else{
+    document.querySelector('.mus10').classList.remove('piscar')
+}
+
+if(track_index==10){
+    document.querySelector('.mus11').classList.add('piscar')
+}else{
+    document.querySelector('.mus11').classList.remove('piscar')
+}
+
+if(track_index==11){
+    document.querySelector('.mus12').classList.add('piscar')
+}else{
+    document.querySelector('.mus12').classList.remove('piscar')
+}
+
+if(track_index==12){
+    document.querySelector('.mus13').classList.add('piscar')
+}else{
+    document.querySelector('.mus13').classList.remove('piscar')
+}
+
+if(track_index==13){
+    document.querySelector('.mus14').classList.add('piscar')
+}else{
+    document.querySelector('.mus14').classList.remove('piscar')
+}
 }
 
 
@@ -234,6 +321,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 0
+    loadTrack(track_index)
     curr_track.src = music_list[0].music;
     curr_track.load();
 
@@ -251,6 +339,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 1
+    loadTrack(track_index)
     curr_track.src = music_list[1].music;
     curr_track.load();
 
@@ -268,6 +357,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 2
+    loadTrack(track_index)
     curr_track.src = music_list[2].music;
     curr_track.load();
 
@@ -285,6 +375,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 3
+    loadTrack(track_index)
     curr_track.src = music_list[3].music;
     curr_track.load();
 
@@ -302,6 +393,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 4
+    loadTrack(track_index)
     curr_track.src = music_list[4].music;
     curr_track.load();
 
@@ -319,6 +411,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 5
+    loadTrack(track_index)
     curr_track.src = music_list[5].music;
     curr_track.load();
 
@@ -336,6 +429,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 6
+    loadTrack(track_index)
     curr_track.src = music_list[6].music;
     curr_track.load();
 
@@ -353,6 +447,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 7
+    loadTrack(track_index)
     curr_track.src = music_list[7].music;
     curr_track.load();
 
@@ -370,6 +465,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 8
+    loadTrack(track_index)
     curr_track.src = music_list[8].music;
     curr_track.load();
 
@@ -387,6 +483,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 9
+    loadTrack(track_index)
     curr_track.src = music_list[9].music;
     curr_track.load();
 
@@ -404,6 +501,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 10
+    loadTrack(track_index)
     curr_track.src = music_list[10].music;
     curr_track.load();
 
@@ -421,6 +519,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 11
+    loadTrack(track_index)
     curr_track.src = music_list[11].music;
     curr_track.load();
 
@@ -438,6 +537,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 12
+    loadTrack(track_index)
     curr_track.src = music_list[12].music;
     curr_track.load();
 
@@ -455,6 +555,7 @@ function setUpdate(){
     clearInterval(updateTimer);
     reset();
     track_index = 13
+    loadTrack(track_index)
     curr_track.src = music_list[13].music;
     curr_track.load();
 
@@ -465,7 +566,6 @@ function setUpdate(){
 
     updateTimer = setInterval(setUpdate, 1000);
 
-    curr_track.addEventListener('ended', nextTrack);7
+    curr_track.addEventListener('ended', nextTrack);
     playTrack()
   }
- 
