@@ -111,6 +111,20 @@ const music_list = [
         artist : 'Axel F',
         music : 'music/crazy.mp4'
     }
+
+      {
+        img : 'img/noite.jpg',
+        name : 'Dusk till dawn',
+        artist : 'Zayn Cia',
+        music : 'music/Zayn_-_Dusk_Till_Dawn_Ft_Sia_CeeNaija.com_.mp3'
+    }
+
+  {
+        img : 'img/riptide.jpg',
+        name : 'Home',
+        artist : 'Axel F',
+        music : 'music/Edith_Whiskers_-_Home_Nobadsong.com.mp3'
+    }
 ];
 
 loadTrack(track_index);
